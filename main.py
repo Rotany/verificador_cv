@@ -15,9 +15,8 @@ def verificar_apto(archivo_pdf, archivo_palabras_clave):
         'es_apto': True
     }
 
-    with open(archivo_palabras_clave,'r') as stop_words: 
-        
-        palabras_clave = [linea.strip().lower() for linea in stop_words]
+    palabras_clave = archivo_palabras_clave.split(',')
+    palabras_clave = [palabra.strip().lower() for palabra in palabras_clave]
 
     for palabra_clave in palabras_clave:
         
@@ -32,5 +31,26 @@ def verificar_apto(archivo_pdf, archivo_palabras_clave):
 
 # verificar = verificar_apto('data/curriculum.pdf','data/palabras_clave.txt' )
 
+
+@app.route('/cv-analyzer',methods = ['POST'])
+def verificador_cv():
+    archivo_pdf = request.files['pdf']
+    palabras_clave = request.form['palabras_clave']
+    verificar = verificar_apto(archivo_pdf, palabras_clave)
+    return(jsonify(verificar))
+
+
+
+
+
+
+
+
+
+
+
+
 if __name__ == '__main__':
     app.run()
+
+
