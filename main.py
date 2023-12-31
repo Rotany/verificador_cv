@@ -1,5 +1,6 @@
 from PyPDF2 import PdfReader
 from flask import Flask , request, jsonify
+import os
 
 app = Flask(__name__)
 
@@ -41,16 +42,8 @@ def verificador_cv():
 
 
 
+port = int(os.environ.get('PORT', 5000))
 
-
-
-
-
-
-
-
-
-if __name__ == '__main__':
-    app.run()
+app.run(debug=False, port=port)
 
 
