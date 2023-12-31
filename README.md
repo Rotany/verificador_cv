@@ -1,0 +1,1 @@
+El proposito de este proyecto es comprobar si una persona es apta o no apta para un puesto de trabajo, comparando un archivo que contenga su curriculum con otro archivo que contiene palabras claves, para ello utilizaremos python y una pequeña interfaz para que el usuario pueda subir los archivos y compruebe si es apto.
