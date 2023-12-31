@@ -1,4 +1,8 @@
 from PyPDF2 import PdfReader
+from flask import Flask , request, jsonify
+
+app = Flask(__name__)
+
 
 def verificar_apto(archivo_pdf, archivo_palabras_clave):
     reader = PdfReader(archivo_pdf)
@@ -26,4 +30,7 @@ def verificar_apto(archivo_pdf, archivo_palabras_clave):
     verificador['es_apto'] = es_apto 
     return(verificador) 
 
-verificar = verificar_apto('data/curriculum.pdf','data/palabras_clave.txt' )
+# verificar = verificar_apto('data/curriculum.pdf','data/palabras_clave.txt' )
+
+if __name__ == '__main__':
+    app.run()
