@@ -1,8 +1,10 @@
 from PyPDF2 import PdfReader
 from flask import Flask , request, jsonify
+from flask_cors import CORS
 import os
 
 app = Flask(__name__)
+CORS(app, resources={r"/cv-analyzer": {"origins": "https://nuncaestarde.blog"}})
 
 
 def verificar_apto(archivo_pdf, archivo_palabras_clave):
