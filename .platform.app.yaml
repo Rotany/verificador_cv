@@ -29,4 +29,4 @@ hooks:
 
 web:
   commands: 
-    start: "gunicorn -b 0.0.0.0:500 -k gevent --worker-connections 1000 --timeout 600 main:app"
+    start: "python main.py"
